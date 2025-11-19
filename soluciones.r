@@ -61,6 +61,8 @@ metodoRK4_c1 <- function(f, h, y0, n, a){
      data.frame(step = 0:(n-1), t = t, y = y);
 }
 
+# Método RK4DP5
+
 metodoDP5_c1 <- function(f, h, y0, n, a){
     stopifnot(is.function(f), h > 0, n >= 1)
 
@@ -92,6 +94,8 @@ f2 <- function(t, k, a, X){
   -k*X + a
 }
 
+# Método de Euler
+
 metodoEuler_c2 <- function(f, h, y0, n, k, a){
     stopifnot(is.function(f), h > 0, n >= 1)
 
@@ -106,6 +110,8 @@ metodoEuler_c2 <- function(f, h, y0, n, k, a){
      }
      data.frame(step = 0:(n-1), t = t, y = y);
 }
+
+# Método RK4
 
 metodoRK4_c2 <- function(f, h, y0, n, k, a){
     stopifnot(is.function(f), h > 0, n >= 1)
@@ -125,6 +131,8 @@ metodoRK4_c2 <- function(f, h, y0, n, k, a){
      }
      data.frame(step = 0:(n-1), t = t, y = y);
 }
+
+# Método DP5
 
 metodoDP5_c2 <- function(f, h, y0, n, k, a){
     stopifnot(is.function(f), h > 0, n >= 1)

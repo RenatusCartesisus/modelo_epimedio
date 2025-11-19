@@ -1,5 +1,12 @@
+/*
+Importación de la fuente de texto utilizada para todos los elementos del programa.
+En este caso, se utilizó la fuente "Montserrat"
+*/
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
 
+/*
+Asignación de la fuente de texto (aplica para todos los textos)
+*/
 *{
   font-family: "Montserrat", sans-serif !important;
   font-optical-sizing: auto;
@@ -11,4 +18,16 @@
 }
 .navbar-toggle:hover{
   background-color: #2b3699ff;
+}
+.img-exp{
+  max-height: 400px;
+  max-width: 400px;
+  align-self: center;
+}
+#img_comp:hover{
+  scale: 1.01;
+}
+
+.card{
+  border-color: aliceblue;
 }

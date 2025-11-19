@@ -6,6 +6,7 @@ myserver <- function(input,output,session){
 #                                CASO 1
 ##########################################################################
   
+  # Graficación del método de Euler
   output$plot_euler_c1 <- renderPlot({
 
     df_euler_c1 <- metodoEuler_c1(f1, input$h, input$cafe_inicial, input$n, input$k)
@@ -17,6 +18,7 @@ myserver <- function(input,output,session){
     )
   })
 
+  # Graficación del método de RK4
   output$plot_rk4_c1 <- renderPlot({
 
     df_rk4_c1 <- metodoRK4_c1(f1, input$h, input$cafe_inicial, input$n, input$k)
@@ -28,6 +30,7 @@ myserver <- function(input,output,session){
     )
   })
 
+  # Graficación del método de RK4DP5
   output$plot_rk4dp5_c1 <- renderPlot({
 
     df_rk4dp_c1 <- metodoDP5_c1(f1, input$h, input$cafe_inicial, input$n, input$k)
@@ -39,6 +42,8 @@ myserver <- function(input,output,session){
     )
   })
 
+  # Graficación realizada con los datos obtenidos con ayuda de la función 
+  # ode (del paquete deSolve )
   output$desolve_c1 <- renderPlot({
     t <- seq(from=0, by=input$h, length.out=input$n);
     s <- ode(y=c(y=input$cafe_inicial), 
@@ -54,7 +59,9 @@ myserver <- function(input,output,session){
     )
   })
 
-    output$ode45_c1 <- renderPlot({
+  # Graficación realizada con los datos obtenidos con ayuda de la función 
+  # ode45
+  output$ode45_c1 <- renderPlot({
     s <- pracma::ode45({function(t,y) -input$k*y}, 0, input$n*input$h, input$cafe_inicial)
 
     df_ode45 <- data.frame(t=s$t, y=s$y)
@@ -78,6 +85,7 @@ myserver <- function(input,output,session){
     df_rk4dp_c1 <- metodoDP5_c1(f1, input$h, input$cafe_inicial, input$n, input$k)
     
     # Valores obtenidos para el caso de ode45
+    
     s <- pracma::ode45({function(t,y) -input$k*y}, 0, input$n*input$h, input$cafe_inicial)
     df_ode45 <- data.frame(t=s$t, y=s$y)
 
